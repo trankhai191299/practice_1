@@ -1,5 +1,3 @@
-// middleware verify token
-
 const jwt = require('jsonwebtoken');
 const { AppError } = require("../helpers/error");
 const {User} = require('../models');
