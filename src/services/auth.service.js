@@ -15,11 +15,12 @@ const signup = async(data)=>{
         const userSignUp = await User.create(data)
         return userSignUp
     } catch (error) {
-        
+        throw error
     }
 }
 const signin = async(data)=>{
-    const {email,password} = data;
+    try {
+        const {email,password} = data;
     if(!email||!password){
         throw new AppError(400,'email or password invalid')
     }
@@ -39,6 +40,9 @@ const signin = async(data)=>{
         throw new AppError(400,'email or password invalid')
     }
     return generateToken(user)
+    } catch (error) {
+        throw error
+    }
 }
 module.exports = {
     signup,
